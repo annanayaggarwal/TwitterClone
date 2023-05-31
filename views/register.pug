@@ -1,0 +1,30 @@
+extends layouts/login-layout.pug
+
+block content 
+    .loginContainer
+        h1 Register
+        form#form(method="post", onsubmit="event.preventDefault(); validatepass(); ")
+            input(type="text", name="firstname",placeholder="Firstname",required="") 
+            input(type="text", name="lastname",placeholder="lastname",required="") 
+            input(type="text", name="username",placeholder="username",required="") 
+            input(type="email", name="email",placeholder="email",required="") 
+            input#password(type="password", name="Password",placeholder="Password",required="") 
+            input#confpass(type="password", name="confPassword",placeholder="confirm Password",required="") 
+            input(type="submit", value="Register")
+        a(href="/login")  Already have an account ? Login here 
+
+    script.
+        var pass = document.getElementById("password")
+        var confpass = document.getElementById("confpass")
+        var form = document.getElementById("form")
+
+        function validatepass(){
+            if(pass.value != confpass.value){
+                alert('password not match try again')
+            }
+            else{
+                form.submit();
+            }
+        }
+
+
