@@ -9,4 +9,8 @@ router.get("/", (req,res,next)=>{
     res.status(200).render("login")
 })
 
+router.post("/", (req,res,next)=>{
+    res.status(200).render("login")
+})
+
 module.exports = router

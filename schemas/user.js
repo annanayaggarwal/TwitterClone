@@ -24,7 +24,7 @@ const userSchema = new Schema({
         trim:true,
         unique:true
     },
-    password:{
+    Password:{
         type:String
         // required:true
     },
@@ -32,7 +32,7 @@ const userSchema = new Schema({
         type:String,
         default:"/images/profilePic.png"
     }
-})
+},{timestamps:true})
 
 var user = mongoose.model('User',userSchema)
 

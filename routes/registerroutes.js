@@ -3,6 +3,7 @@ const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser")
 const user = require("../schemas/user");
+const bcrypt = require("bcrypt")
 
 app.set("view engine","pug");
 app.set("views","views")
@@ -10,7 +11,6 @@ app.set("views","views")
 app.use(bodyParser.urlencoded({extended:false}));
 
 router.get("/", (req,res,next)=>{
-
     res.status(200).render("Register")
 })
 
@@ -38,10 +38,11 @@ router.post("/", async(req,res,next)=>{
 
         if(User == null){
             var data = req.body
-
+            data.Password = await bcrypt.hash(password,10)
             user.create(data)
             .then((User)=>{
-                console.log(User);
+                req.session.user = User
+                return res.redirect("/");
             })
         }
         else{
