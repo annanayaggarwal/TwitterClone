@@ -3,8 +3,6 @@ const middleware = require("./middleware")
 const app = express();
 const port = 3000|| process.env.port
 const path = require("path")
-const loginroutes = require("./routes/loginroutes")
-const registerroutes = require("./routes/registerroutes")
 const bodyParser = require("body-parser")
 const mongoose = require("./databse")
 const session = require("express-session")
@@ -15,6 +13,10 @@ app.set("views","views")
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,"public")))
 
+const loginroutes = require("./routes/loginroutes")
+const registerroutes = require("./routes/registerroutes")
+const logoutroutes = require("./routes/logoutroutes")
+
 app.use(session({
     secret: "annanay aggarwal",
     resave:true,
@@ -23,6 +25,7 @@ app.use(session({
 
 app.use("/login",loginroutes)
 app.use("/Register",registerroutes)
+app.use("/logout",logoutroutes)
  
 app.get("/",middleware, (req,res,next)=>{
 
