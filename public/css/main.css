@@ -5,6 +5,10 @@
     --spacing:15px;
 }
 
+*{
+    outline: none !important;
+}
+
 a{
     color: inherit;
 }
@@ -69,4 +73,48 @@ nav a:hover{
 .titlecontainer h1{
     flex: 1;
 
+}
+
+.postFormcontainer{
+    display: flex;
+    padding: var(--spacing);
+    border-bottom: 10px solid rgb(230,236,240);
+    flex-shrink: 0;
+}
+.userimagecontainer {
+    width: 50px;
+    height: 50px;
+
+}
+
+.userimagecontainer img {
+    width: 100%;
+    border-radius: 50%;
+    background-color: #ffff;
+
+}
+
+.textareacontainer{
+    flex: 1;
+    padding-left: var(--spacing);
+}
+
+.textareacontainer textarea{
+    width: 100%;
+    border: none;
+    resize: none;
+    font-size: 19px; 
+}
+
+#submitpostbutton{
+    background-color: #1FA2F1;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 7px 15px;
+
+}
+
+#submitpostbutton:disabled{
+    background-color: #9BD1F9;
 }
