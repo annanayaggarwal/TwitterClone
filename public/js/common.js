@@ -4,7 +4,7 @@ $("#posttextarea").keyup((event)=>{
     
     var submitbutton = $("#submitpostbutton")
 
-    if(submitbutton.length == 0)return alert("no submit button found")
+    if(submitbutton.length == 0)return alert("NO button is found to submit")
 
     if(value == ""){
         submitbutton.prop("disabled",true)
