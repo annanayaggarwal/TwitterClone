@@ -13,9 +13,15 @@ app.set("views","views")
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,"public")))
 
+//routes
 const loginroutes = require("./routes/loginroutes")
 const registerroutes = require("./routes/registerroutes")
 const logoutroutes = require("./routes/logoutroutes")
+
+
+//api routes
+const postapiroutes = require('./routes/api/posts')
+
 
 app.use(session({
     secret: "annanay aggarwal",
@@ -26,7 +32,8 @@ app.use(session({
 app.use("/login",loginroutes)
 app.use("/Register",registerroutes)
 app.use("/logout",logoutroutes)
- 
+app.use("/api/posts",postapiroutes)
+
 app.get("/",middleware, (req,res,next)=>{
 
     var payload = {
